@@ -133,14 +133,14 @@ gulimall
 - 修改本机的host文件，映射域名端口
 
 ```
-192.168.77.130	gulimall.com
-192.168.77.130	search.gulimall.com
-192.168.77.130  item.gulimall.com
-192.168.77.130  auth.gulimall.com
-192.168.77.130  cart.gulimall.com
-192.168.77.130  order.gulimall.com
-192.168.77.130  member.gulimall.com
-192.168.77.130  seckill.gulimall.com
+192.168.56.10	gulimall.com
+192.168.56.10	search.gulimall.com
+192.168.56.10  item.gulimall.com
+192.168.56.10  auth.gulimall.com
+192.168.56.10  cart.gulimall.com
+192.168.56.10  order.gulimall.com
+192.168.56.10  member.gulimall.com
+192.168.56.10  seckill.gulimall.com
 以上端口换成自己Linux的ip地址
 ```
 
@@ -149,12 +149,12 @@ gulimall
 ```
 1、在nginx.conf中添加负载均衡的配置    
 upstream gulimall {
-        server 192.168.43.182:88;
+        server 192.168.1.8:88;
     }
 2、在gulimall.conf中添加如下配置
 server {
     listen       80;
-    server_name  gulimall.com  *.gulimall.com hjl.mynatapp.cc;
+    server_name  gulimall.com  *.gulimall.com #内网穿透支付地址#;
 
     #charset koi8-r;
     #access_log  /var/log/nginx/log/host.access.log  main;
