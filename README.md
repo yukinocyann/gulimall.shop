@@ -133,14 +133,14 @@ gulimall
 - 修改本机的host文件，映射域名端口
 
 ```
-192.168.56.10	gulimall.com
-192.168.56.10	search.gulimall.com
-192.168.56.10  item.gulimall.com
-192.168.56.10  auth.gulimall.com
-192.168.56.10  cart.gulimall.com
-192.168.56.10  order.gulimall.com
-192.168.56.10  member.gulimall.com
-192.168.56.10  seckill.gulimall.com
+192.168.56.10	gulimall.shop
+192.168.56.10	search.gulimall.shop
+192.168.56.10  item.gulimall.shop
+192.168.56.10  auth.gulimall.shop
+192.168.56.10  cart.gulimall.shop
+192.168.56.10  order.gulimall.shop
+192.168.56.10  member.gulimall.shop
+192.168.56.10  seckill.gulimall.shop
 以上端口换成自己Linux的ip地址
 ```
 
@@ -154,7 +154,7 @@ upstream gulimall {
 2、在gulimall.conf中添加如下配置
 server {
     listen       80;
-    server_name  gulimall.com  *.gulimall.com #内网穿透支付地址#;
+    server_name  gulimall.shop  *.gulimall.shop #内网穿透支付地址#;
 
     #charset koi8-r;
     #access_log  /var/log/nginx/log/host.access.log  main;
@@ -166,7 +166,7 @@ server {
 
     #支付异步回调的一个配置
     location /payed/ {
-        proxy_set_header Host order.gulimall.com;        #不让请求头丢失
+        proxy_set_header Host order.gulimall.shop;        #不让请求头丢失
         proxy_pass http://gulimall;
     }
 
