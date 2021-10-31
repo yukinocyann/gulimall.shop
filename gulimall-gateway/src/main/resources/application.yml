@@ -70,37 +70,37 @@ spring:
         - id: gulimall_host_route
           uri: lb://gulimall-product
           predicates:
-            - Host=gulimall.com,item.gulimall.com
+            - Host=gulimall.shop,item.gulimall.shop,gulimall.shop,item.gulimall.shop
 
         - id: gulimall_search_route
           uri: lb://gulimall-search
           predicates:
-            - Host=search.gulimall.com
+            - Host=search.gulimall.shop,search.gulimall.shop
 
         - id: gulimall_auth_route
           uri: lb://gulimall-auth-server
           predicates:
-            - Host=auth.gulimall.com
+            - Host=auth.gulimall.shop,auth.gulimall.shop
 
         - id: gulimall_cart_route
           uri: lb://gulimall-cart
           predicates:
-            - Host=cart.gulimall.com
+            - Host=cart.gulimall.shop,cart.gulimall.shop
 
         - id: gulimall_order_route
           uri: lb://gulimall-order
           predicates:
-            - Host=order.gulimall.com
+            - Host=order.gulimall.shop,order.gulimall.shop
 
         - id: gulimall_member_route
           uri: lb://gulimall-member
           predicates:
-            - Host=member.gulimall.com
+            - Host=member.gulimall.shop,member.gulimall.shop
 
         - id: gulimall_seckill_route
           uri: lb://gulimall-seckill
           predicates:
-            - Host=seckill.gulimall.com
+            - Host=seckill.gulimall.shop,seckill.gulimall.shop
 
 
 

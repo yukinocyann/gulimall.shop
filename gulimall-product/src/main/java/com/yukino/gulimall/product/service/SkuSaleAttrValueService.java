@@ -12,7 +12,7 @@ import java.util.Map;
  * sku销售属性&值
  *
  * @author 夏沫止水
- * @email HeJieLin@gulimall.com
+ * @email HeJieLin@gulimall.shop
  * @date 2020-05-22 19:00:18
  */
 public interface SkuSaleAttrValueService extends IService<SkuSaleAttrValueEntity> {

@@ -98,7 +98,7 @@ public class LoginController {
             attributes.addFlashAttribute("errors",errors);
 
             //效验出错回到注册页面
-            return "redirect:http://auth.gulimall.com/reg.html";
+            return "redirect:http://auth.gulimall.shop/reg.html";
         }
 
         //1、效验验证码
@@ -115,13 +115,13 @@ public class LoginController {
                 R register = memberFeignService.register(vos);
                 if (register.getCode() == 0) {
                     //成功
-                    return "redirect:http://auth.gulimall.com/login.html";
+                    return "redirect:http://auth.gulimall.shop/login.html";
                 } else {
                     //失败
                     Map<String, String> errors = new HashMap<>();
                     errors.put("msg", register.getData("msg",new TypeReference<String>(){}));
                     attributes.addFlashAttribute("errors",errors);
-                    return "redirect:http://auth.gulimall.com/reg.html";
+                    return "redirect:http://auth.gulimall.shop/reg.html";
                 }
 
 
@@ -130,14 +130,14 @@ public class LoginController {
                 Map<String, String> errors = new HashMap<>();
                 errors.put("code","验证码错误");
                 attributes.addFlashAttribute("errors",errors);
-                return "redirect:http://auth.gulimall.com/reg.html";
+                return "redirect:http://auth.gulimall.shop/reg.html";
             }
         } else {
             //效验出错回到注册页面
             Map<String, String> errors = new HashMap<>();
             errors.put("code","验证码错误");
             attributes.addFlashAttribute("errors",errors);
-            return "redirect:http://auth.gulimall.com/reg.html";
+            return "redirect:http://auth.gulimall.shop/reg.html";
         }
     }
 
@@ -151,7 +151,7 @@ public class LoginController {
         if (attribute == null) {
             return "login";
         } else {
-            return "redirect:http://gulimall.com";
+            return "redirect:http://gulimall.shop";
         }
 
     }
@@ -166,12 +166,12 @@ public class LoginController {
         if (login.getCode() == 0) {
             MemberResponseVo data = login.getData("data", new TypeReference<MemberResponseVo>() {});
             session.setAttribute(LOGIN_USER,data);
-            return "redirect:http://gulimall.com";
+            return "redirect:http://gulimall.shop";
         } else {
             Map<String,String> errors = new HashMap<>();
             errors.put("msg",login.getData("msg",new TypeReference<String>(){}));
             attributes.addFlashAttribute("errors",errors);
-            return "redirect:http://auth.gulimall.com/login.html";
+            return "redirect:http://auth.gulimall.shop/login.html";
         }
     }
 
@@ -180,7 +180,7 @@ public class LoginController {
     public String logout(HttpServletRequest request) {
         request.getSession().removeAttribute(LOGIN_USER);
         request.getSession().invalidate();
-        return "redirect:http://gulimall.com";
+        return "redirect:http://gulimall.shop";
     }
 
 }

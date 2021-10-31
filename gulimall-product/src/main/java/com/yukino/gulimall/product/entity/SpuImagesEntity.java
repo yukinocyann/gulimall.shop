@@ -11,7 +11,7 @@ import lombok.Data;
  * spu图片
  * 
  * @author 夏沫止水
- * @email HeJieLin@gulimall.com
+ * @email HeJieLin@gulimall.shop
  * @date 2020-05-22 19:00:18
  */
 @Data

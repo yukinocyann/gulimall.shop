@@ -10,7 +10,7 @@ import java.util.Map;
  * 订单退货申请
  *
  * @author 夏沫止水
- * @email HeJieLin@gulimall.com
+ * @email HeJieLin@gulimall.shop
  * @date 2020-05-22 19:49:53
  */
 public interface OrderReturnApplyService extends IService<OrderReturnApplyEntity> {

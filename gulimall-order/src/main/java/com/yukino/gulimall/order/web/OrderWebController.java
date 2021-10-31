@@ -71,14 +71,14 @@ public class OrderWebController {
                     case 3: msg += "库存锁定失败，商品库存不足"; break;
                 }
                 attributes.addFlashAttribute("msg",msg);
-                return "redirect:http://order.gulimall.com/toTrade";
+                return "redirect:http://order.gulimall.shop/toTrade";
             }
         } catch (Exception e) {
             if (e instanceof NoStockException) {
                 String message = ((NoStockException)e).getMessage();
                 attributes.addFlashAttribute("msg",message);
             }
-            return "redirect:http://order.gulimall.com/toTrade";
+            return "redirect:http://order.gulimall.shop/toTrade";
         }
     }
 

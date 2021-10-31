@@ -39,10 +39,10 @@ public class OAuth2Controller {
     public String weibo(@RequestParam("code") String code, HttpSession session) throws Exception {
 
         Map<String, String> map = new HashMap<>();
-        map.put("client_id","2077705774");
-        map.put("client_secret","40af02bd1c7e435ba6a6e9cd3bf799fd");
+        map.put("client_id","950519679");
+        map.put("client_secret","e70b7fa4bc9938ea65a3fab96c4230cd");
         map.put("grant_type","authorization_code");
-        map.put("redirect_uri","http://auth.gulimall.com/oauth2.0/weibo/success");
+        map.put("redirect_uri","http://auth.gulimall.shop/oauth2.0/weibo/success");
         map.put("code",code);
 
         //1、根据用户授权返回的code换取access_token
@@ -72,14 +72,14 @@ public class OAuth2Controller {
                 session.setAttribute(LOGIN_USER,data);
                 
                 //2、登录成功跳回首页
-                return "redirect:http://gulimall.com";
+                return "redirect:http://gulimall.shop";
             } else {
                 
-                return "redirect:http://auth.gulimall.com/login.html";
+                return "redirect:http://auth.gulimall.shop/login.html";
             }
 
         } else {
-            return "redirect:http://auth.gulimall.com/login.html";
+            return "redirect:http://auth.gulimall.shop/login.html";
         }
 
     }

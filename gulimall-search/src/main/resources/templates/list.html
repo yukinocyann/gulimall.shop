@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/static/search/font/iconfont.css">
     <!--<script src="/static/search/./js/jquery-3.2.1.min.js"></script>-->
     <script src="/static/search/./js/jquery-1.12.4.js"></script>
-    <title>Document</title>
+    <title>谷粒商城2021</title>
 </head>
 <body>
 <!--头部-->
@@ -17,7 +17,7 @@
     <div class="header_head_box">
         <b class="header_head_p">
             <div style="overflow: hidden">
-                <a href="http://gulimall.com" class="header_head_p_a1" style="width:73px;">
+                <a href="http://gulimall.shop" class="header_head_p_a1" style="width:73px;">
                     谷粒商城首页
                 </a>
                 <a href="/static/search/#" class="header_head_p_a">
@@ -64,11 +64,11 @@
         </b>
         <ul>
             <li>
-                <a th:if="${session.loginUser == null}" href="http://auth.gulimall.com/login.html" class="li_2">你好，请登录</a>
+                <a th:if="${session.loginUser == null}" href="http://auth.gulimall.shop/login.html" class="li_2">你好，请登录</a>
                 <a th:if="${session.loginUser != null}">欢迎, [[${session.loginUser.nickname}]]</a>
             </li>
             <li>
-                <a th:if="${session.loginUser == null}" href="http://auth.gulimall.com/reg.html" style="color: red;">免费注册</a>
+                <a th:if="${session.loginUser == null}" href="http://auth.gulimall.shop/reg.html" style="color: red;">免费注册</a>
             </li>
             <span>|</span>
             <li>
@@ -400,7 +400,7 @@
 <!--搜索导航-->
 <div class="header_sous">
     <div class="logo">
-        <a href="http://gulimall.com"><img src="/static/search/./image/logo1.jpg" alt=""></a>
+        <a href="http://gulimall.shop"><img src="/static/search/./image/logo1.jpg" alt=""></a>
     </div>
     <div class="header_form">
         <input id="keyword_input" type="text" placeholder="手机" th:value="${param.keyword}"/>
@@ -408,7 +408,7 @@
     </div>
     <div class="header_ico">
         <div class="header_gw">
-            <span><a href="http://cart.gulimall.com/cart.html">我的购物车</a></span>
+            <span><a href="http://cart.gulimall.shop/cart.html">我的购物车</a></span>
             <img src="/static/search/image/settleup-@1x.png"/>
             <span>0</span>
         </div>
@@ -1214,7 +1214,7 @@
                                 <a href="/static/search/#">关注</a>
                             </div>
                             <p class="da">
-                                <a th:href="|http://item.gulimall.com/${product.skuId}.html|" >
+                                <a th:href="|http://item.gulimall.shop/${product.skuId}.html|" >
                                     <img   class="dim" th:src="${product.skuImg}">
                                 </a>
                             </p>
@@ -2026,8 +2026,14 @@
     }
 
 
+    function searchProductsByKeyword(name, value) {
+        //原來的页面
+        location.href = replaceParamVal(location.href, name, value, false)
+    }
+
+
     function searchByKeyword() {
-        searchProducts("keyword", $("#keyword_input").val());
+        searchProductsByKeyword("keyword", $("#keyword_input").val());
     }
 
     $(".page_a").click(function () {

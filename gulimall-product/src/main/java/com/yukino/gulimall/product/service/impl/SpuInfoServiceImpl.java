@@ -30,6 +30,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 
@@ -139,6 +140,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
             log.error("远程保存spu积分信息失败");
         }
 
+        AtomicInteger i = new AtomicInteger(0);
         //5、保存当前spu对应的所有sku信息：pms_sku_info
         //5、1）、sku的基本信息:pms_sku_info
         List<Skus> skus = vo.getSkus();
@@ -157,7 +159,11 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
                 skuInfoEntity.setCatalogId(spuInfoEntity.getCatalogId());
                 skuInfoEntity.setSaleCount(0L);
                 skuInfoEntity.setSpuId(spuInfoEntity.getId());
-                skuInfoEntity.setSkuDefaultImg(defaultImg);
+                skuInfoEntity.setSkuDefaultImg(decript.get(i.get()));
+                if(i.get() > decript.size()-1){
+                    i.getAndDecrement();
+                }
+                i.getAndIncrement();
                 skuInfoService.saveSkuInfo(skuInfoEntity);
 
                 Long skuId = skuInfoEntity.getSkuId();

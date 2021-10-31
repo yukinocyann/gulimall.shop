@@ -11,7 +11,7 @@ import lombok.Data;
  * 商品库存
  * 
  * @author 夏沫止水
- * @email HeJieLin@gulimall.com
+ * @email HeJieLin@gulimall.shop
  * @date 2020-05-22 19:55:33
  */
 @Data
